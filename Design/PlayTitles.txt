@@ -1,0 +1,1 @@
+QLabel { background-image: url(%1); border: 2px solid #291714; border-radius: 30px; color: #e6f6fa; font-family: Arial Black; font-size: 20px; font-weight: bold;}
