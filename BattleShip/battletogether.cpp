@@ -11,7 +11,7 @@ BattleTogether::BattleTogether(int ActiveHIt, int ActiveMiss, QWidget *parent) :
 
     Field2->Close();
     change2->setEnabled(false);
-    change2->setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/Design/BattleShip_WoodBackground.jpg"));
+    change2->setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg"));
     ChangeStartButtonText(Player1Name() + " Ready!");
 
     connect(change2, &QPushButton::clicked, this, &BattleTogether::onChange2ButtonClicked);

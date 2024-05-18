@@ -40,14 +40,14 @@ GetModeWindow::~GetModeWindow()
 
 void GetModeWindow::SetDesign()
 {
-    const QString ButtonDesing = GetDesign("MainButtons").arg(QDir::currentPath() + "/Design/BattleShip_WoodBackground.jpg");
+    const QString ButtonDesing = GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg");
     Yes->setStyleSheet(ButtonDesing);
     No->setStyleSheet(ButtonDesing);
 
     const QString TitleDesign = GetDesign("ExitTitles");
     Text->setStyleSheet(TitleDesign);
 
-    SetBackground(this, QDir::currentPath() + "/Design/BattleShp_ExitBackground.jpg");
+    SetBackground(this, QDir::currentPath() + "/../Design/BattleShp_ExitBackground.jpg");
 }
 
 void GetModeWindow::SetLabel(const QString text)

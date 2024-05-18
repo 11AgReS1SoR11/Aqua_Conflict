@@ -65,10 +65,10 @@ BattleWindow::BattleWindow(int activeHit, int activeMiss, QWidget *parent)
 
 
     SetDesign();
-    Field1->SetHitSettings(GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boom" + QString::number(ActiveHit+1) + ".png"));
-    Field1->SetMissSettings(GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boubles" + QString::number(ActiveMiss+1) + ".png"));
-    Field2->SetHitSettings(GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boom" + QString::number(ActiveHit+1) + ".png"));
-    Field2->SetMissSettings(GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boubles" + QString::number(ActiveMiss+1) + ".png"));
+    Field1->SetHitSettings(GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boom" + QString::number(ActiveHit+1) + ".png"));
+    Field1->SetMissSettings(GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boubles" + QString::number(ActiveMiss+1) + ".png"));
+    Field2->SetHitSettings(GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boom" + QString::number(ActiveHit+1) + ".png"));
+    Field2->SetMissSettings(GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boubles" + QString::number(ActiveMiss+1) + ".png"));
 }
 
 BattleWindow::~BattleWindow()
@@ -87,19 +87,19 @@ BattleWindow::~BattleWindow()
 
 void BattleWindow::SetDesign()
 {
-    QString ButtonsDesign = GetDesign("MainButtons").arg(QDir::currentPath() + "/Design/BattleShip_WoodBackground.jpg");
+    QString ButtonsDesign = GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg");
     start->setStyleSheet(ButtonsDesign);
     change->setStyleSheet(ButtonsDesign);
     returnbutton->setStyleSheet(ButtonsDesign);
 
-    const QString TitleDesign = GetDesign("PlayTitles").arg(QDir::currentPath() + "/Design/BattleShip_WoodBackground.jpg");
+    const QString TitleDesign = GetDesign("PlayTitles").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg");
     player1->setStyleSheet(TitleDesign);
     player2->setStyleSheet(TitleDesign);
     Turn->setStyleSheet(TitleDesign);
     LastTurn->setStyleSheet(TitleDesign);
     counter->setStyleSheet(TitleDesign);
 
-    SetBackground(this, QDir::currentPath() + "/Design/BattleShip_Paluba.png");
+    SetBackground(this, QDir::currentPath() + "/../Design/BattleShip_Paluba.png");
 }
 
 // жеребьёвка

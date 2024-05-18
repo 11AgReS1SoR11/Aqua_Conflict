@@ -23,7 +23,7 @@ BattleField::BattleField(const int x, const int y, int width, int height, QMainW
     Field->setAutoFillBackground(true);
     Field->setPalette(palette);
 
-    SetPicture(Field, QDir::currentPath() + "/Design/BattleShip_Sea.jpg");
+    SetPicture(Field, QDir::currentPath() + "/../Design/BattleShip_Sea.jpg");
 
     Fill_Cells(x, y, x + width, y + height, parent);
     IsClickable(false);
@@ -44,7 +44,7 @@ void BattleField::Open()
         for (int j = 1; j <= 10; j++)
         {
             QString ButtonUsedDesign;
-            if (CELLS[i][j].GetShip()) ButtonUsedDesign = GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/Design/BattleShip_MyShip2.png");
+            if (CELLS[i][j].GetShip()) ButtonUsedDesign = GetDesign("BattleFieldTrue").arg(QDir::currentPath() + "/../Design/BattleShip_MyShip2.png");
             else ButtonUsedDesign = GetDesign("BattleFieldFalse");
             CELLS[i][j].setStyleSheet(ButtonUsedDesign);
         }
@@ -273,11 +273,11 @@ void BattleField::Fill_Cells(const int x1, const int y1, const int x2, const int
     for (int i = 0; i < COUNTCELL; i++)
     {
         CELLS[i][0].setParent(context);
-        CELLS[i][0].setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/Design/BattleShip_WoodBackground.jpg"));
+        CELLS[i][0].setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg"));
         CELLS[i][0].setText(QString::number(i));
         CELLS[i][0].setGeometry(x1, y1 + cell_sizeY * i, cell_sizeX, cell_sizeY);
         CELLS[i][11].setParent(context);
-        CELLS[i][11].setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/Design/BattleShip_WoodBackground.jpg"));
+        CELLS[i][11].setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg"));
         CELLS[i][11].setText(QString::number(i));
         CELLS[i][11].setGeometry(x1 + cell_sizeX * 11, y1 + cell_sizeY * i, cell_sizeX, cell_sizeY);
     }
@@ -285,11 +285,11 @@ void BattleField::Fill_Cells(const int x1, const int y1, const int x2, const int
     for (int j = 1; j < COUNTCELL; j++)
     {
         CELLS[0][j].setParent(context);
-        CELLS[0][j].setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/Design/BattleShip_WoodBackground.jpg"));
+        CELLS[0][j].setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg"));
         CELLS[0][j].setText(QString(QChar('A' + j - 1)));
         CELLS[0][j].setGeometry(x1 + cell_sizeX * j, y1, cell_sizeX, cell_sizeY);
         CELLS[11][j].setParent(context);
-        CELLS[11][j].setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/Design/BattleShip_WoodBackground.jpg"));
+        CELLS[11][j].setStyleSheet(GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg"));
         CELLS[11][j].setText(QString(QChar('A' + j - 1)));
         CELLS[11][j].setGeometry(x1 + cell_sizeX * j, y1 + cell_sizeY * 11, cell_sizeX, cell_sizeY);
     }

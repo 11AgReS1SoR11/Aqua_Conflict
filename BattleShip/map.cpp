@@ -1,8 +1,9 @@
 #include "map.h"
+#include <QDebug>
 
 Map::Map(Cell (&A)[12][12]) : CellsArray(A)
 {
-    const QString filename = QDir::currentPath() + "/Ships_setting/1.txt";
+    const QString filename = QDir::currentPath() + "/../BattleShip/Ships_setting/1.txt";
     Fill(filename);
 }
 
@@ -24,6 +25,8 @@ QString Map::GetPathRandomMap()
         directory.setFilter(QDir::Files);
 
         // Переходим в папку "Ships_setting"
+        directory.cd("..");
+        directory.cd("BattleShip");
         directory.cd("Ships_setting");
 
         QStringList fileList = directory.entryList(QStringList() << "*.txt", QDir::Files);

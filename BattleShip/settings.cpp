@@ -38,20 +38,20 @@ Settings::~Settings()
 
 void Settings::SetDesign()
 {
-    QString ButtonDesign = GetDesign("MainButtons").arg(QDir::currentPath() + "/Design/BattleShip_WoodBackground.jpg");
+    QString ButtonDesign = GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg");
     Ok->setStyleSheet(ButtonDesign);
 
-    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boom1.png");
+    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boom1.png");
     Boom1->setStyleSheet(ButtonDesign);
-    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boom2.png");
+    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boom2.png");
     Boom2->setStyleSheet(ButtonDesign);
-    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boom3.png");
+    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boom3.png");
     Boom3->setStyleSheet(ButtonDesign);
-    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boubles1.png");
+    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boubles1.png");
     Boubles1->setStyleSheet(ButtonDesign);
-    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boubles2.png");
+    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boubles2.png");
     Boubles2->setStyleSheet(ButtonDesign);
-    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/Design/Settings/BattleShip_Boubles3.png");
+    ButtonDesign = GetDesign("SettingsButtons").arg(QDir::currentPath() + "/../Design/Settings/BattleShip_Boubles3.png");
     Boubles3->setStyleSheet(ButtonDesign);
 
     QPushButton* booms[3] = {Boom1, Boom2, Boom3};
@@ -76,7 +76,7 @@ void Settings::SetDesign()
     }
 
 
-    SetBackground(this, QDir::currentPath() + "/Design/BattleShp_ExitBackground.jpg");
+    SetBackground(this, QDir::currentPath() + "/../Design/BattleShp_ExitBackground.jpg");
 }
 
 void Settings::SetActiveImg(int hit, int mis)

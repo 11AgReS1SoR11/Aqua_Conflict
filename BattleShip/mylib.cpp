@@ -1,5 +1,6 @@
 
 #include "mylib.h"
+#include <QDebug>
 
 void CallCompliteWindow(const QString& Text){
     //всплывающее окно, что всё круто
@@ -35,13 +36,15 @@ QLabel* CreateTitle(QWidget *window, QString text, const int X, const int Y, con
 
 QString GetDesign(const QString parametrButton)
 {
-    const QString filename = QDir::currentPath() + "/Design/" + parametrButton + ".txt";
+    const QString filename = QDir::currentPath() + "/../Design/" + parametrButton + ".txt";
+    qDebug() << filename;
     QFile file(filename);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QByteArray data = file.readAll();
         QString text = QString::fromUtf8(data);
         return text;
     }
+    throw std::runtime_error("AAAAAAAAAAAAAA");
 }
 
 bool SetBackground(QWidget* window, const QString& ImagePath)
