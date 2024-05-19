@@ -5,16 +5,15 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QDialog>
-#include <mylib.h>
-#include <battlewindow.h>
 
-#include <easyai.h>
-#include <ai.h>
-#include <mediumai.h>
-#include <battlesolo.h>
-#include <battletogether.h>
-#include <getmodewindow.h>
-
+#include "mylib.h"
+#include "battlewindow.h"
+#include "easyai.h"
+#include "ai.h"
+#include "mediumai.h"
+#include "battlesolo.h"
+#include "battletogether.h"
+#include "getmodewindow.h"
 
 class StartChooseWin : public QDialog
 {

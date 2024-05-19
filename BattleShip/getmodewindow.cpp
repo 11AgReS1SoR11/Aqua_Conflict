@@ -5,7 +5,6 @@ GetModeWindow::GetModeWindow(QWidget *parent) : QDialog(parent)
     const int WINDOW_WIDTH = 400;
     const int WINDOW_HEIGHT = 400;
     setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-
 }
 
 GetModeWindow::GetModeWindow(const QString AgreeWord, const QString DisagreeWord, QWidget *parent) : QDialog(parent)

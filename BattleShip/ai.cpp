@@ -22,12 +22,12 @@ AI::~AI()
     {
         for (int i = 0; i <= 11; ++i)
             if (Field[i] != nullptr)
-                delete Field[i];
-        delete Field;
+                delete[] Field[i];
+        delete[] Field;
     }
 }
 
-void AI::UpdateField(int **newfield)
+void AI::UpdateField(int** newfield)
 {
     for (int i = 1; i <= 10; i++)
         for (int j = 1; j <= 10; j++)

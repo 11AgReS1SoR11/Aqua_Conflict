@@ -5,7 +5,8 @@
 #include <QDialog>
 #include <QPushButton>
 #include <QLabel>
-#include <mylib.h>
+
+#include "mylib.h"
 
 class Settings : public QDialog
 {

@@ -7,12 +7,11 @@
 #include <QPushButton>
 #include <QApplication>
 
-#include <battlewindow.h>
-#include <mylib.h>
-#include <startchoosewin.h>
-#include <getmodewindow.h>
-#include <settings.h>
-
+#include "battlewindow.h"
+#include "mylib.h"
+#include "startchoosewin.h"
+#include "getmodewindow.h"
+#include "settings.h"
 
 class MainWindow : public QMainWindow
 

@@ -1,36 +1,33 @@
 
 #include "mainwindow.h"
-#include <QDebug>
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    qDebug() << "AAAA'";
     // Установка размеров окна
     const int WINDOW_WIDTH = 800;
     const int WINDOW_HEIGHT = 600;
     setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     setWindowTitle("Menu");
-qDebug() << "AAAA'";
+
     int sizeX = 350, sizeY = 75, X = (WINDOW_WIDTH - sizeX) / 2, Y = (WINDOW_HEIGHT - sizeY) * 0.5;
-qDebug() << "AAAA'";
+
     startButton = CreateButton(this, "Start", X, Y, sizeX, sizeY, 25, "Pristina");
     settingsButton = CreateButton(this, "Settings", X, Y + sizeY * 1.2, sizeX, sizeY, 25, "Pristina");
     exitButton = CreateButton(this, "Exit", X, Y + sizeY * 2.4, sizeX, sizeY, 25, "Pristina");
-qDebug() << "AAAA'";
+
     Title = CreateTitle(this, "Main menu", X, Y / 2 + sizeY / 2, sizeX, sizeY);
     AquaConflict = CreateTitle(this, "Aqua Conflict", 0, 0, WINDOW_WIDTH, 200);
-qDebug() << "BBBB'";
+
     ChooseModeWin = new StartChooseWin(this);
     set = new Settings(this);
-qDebug() << "CCCC'";
+
     connect(exitButton, &QPushButton::clicked, this, &MainWindow::onexitButtonClicked);
     connect(settingsButton, &QPushButton::clicked, this, &MainWindow::onsettingsButtonClicked);
     connect(startButton, &QPushButton::clicked, this, &MainWindow::onstartButtonClicked);
     connect(ChooseModeWin, &StartChooseWin::ModeSelected, this, &MainWindow::onModeButtonClicked);
     connect(set, &Settings::EndSetting, this, &MainWindow::ChangeSettings);
-qDebug() << "AAAA'";
+
     SetDesign();
 }
 
@@ -49,7 +46,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::SetDesign()
 {
-    qDebug() << "AAAA'";
     const QString DesignForButton = GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg");
     startButton->setStyleSheet(DesignForButton);
     settingsButton->setStyleSheet(DesignForButton);
@@ -63,7 +59,6 @@ void MainWindow::SetDesign()
 
     const QString DesignForAquaConflict = GetDesign("AquaConflict");
     AquaConflict->setStyleSheet(DesignForAquaConflict);
-    qDebug() << "AAAA'";
 }
 
 void MainWindow::onexitButtonClicked()

@@ -4,14 +4,14 @@
 
 #include <QApplication>
 #include <QWidget>
-#include <mylib.h>
-#include <QMainWindow>
-#include <QLabel>
-#include <cell.h>
-#include <map.h>
 #include <QPair>
 #include <QTimer>
+#include <QMainWindow>
+#include <QLabel>
 
+#include "mylib.h"
+#include "cell.h"
+#include "map.h"
 
 class BattleField : public QWidget
 {
@@ -27,7 +27,6 @@ public:
     void ChangeShips();
     bool CheckForNeighboor(Cell*);
     void ShipDead(Cell*, int);
-    int** GetShipMap();
     int** GetUsedMap();
     bool Attack(int, int);
     bool IsShip(int, int);

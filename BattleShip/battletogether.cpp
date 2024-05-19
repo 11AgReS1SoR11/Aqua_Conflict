@@ -23,9 +23,9 @@ BattleTogether::~BattleTogether()
     BattleWindow::~BattleWindow();
 }
 
-void BattleTogether::CСССongratulationsWin()
+void BattleTogether::CCCCongratulationsWin()
 {
-    GetModeWindow* win = СongratulationsWin();
+    GetModeWindow* win = CongratulationsWin();
     if (win)
     {
         connect(win, &GetModeWindow::Result, this, &BattleTogether::GetChoose);

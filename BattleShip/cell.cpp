@@ -2,7 +2,7 @@
 #include "cell.h"
 
 
-Cell::Cell(QWidget *parent) : QPushButton(parent)
+Cell::Cell(QWidget* parent) : QPushButton(parent)
 {
     int sizeX = 20, sizeY = 20;
     setGeometry(0, 0, sizeX, sizeY);

@@ -64,8 +64,9 @@ void Settings::SetDesign()
     FrameBouble->setStyleSheet(GetDesign("SettingsButtonsClicked"));
     FrameBouble->setGeometry(boubles[ActiveBouble]->x(), boubles[ActiveBouble]->y(), boubles[ActiveBouble]->width(), boubles[ActiveBouble]->height());
 
-    for (int i = 0; i < 3; ++i) {
-        QObject::connect(booms[i], &QPushButton::clicked, [this, i, booms]() {
+    for (int i = 0; i < 3; ++i)
+    {
+        QObject::connect(booms[i], &QPushButton::clicked, [this, i, booms](){
             FrameBoom->setGeometry(booms[i]->x(), booms[i]->y(), booms[i]->width(), booms[i]->height());
             ActiveBoom = i;
         });
@@ -89,6 +90,8 @@ void Settings::onOkButtonClicked()
 {
     emit EndSetting(ActiveBoom, ActiveBouble);
     delete FrameBoom;
+    FrameBoom = nullptr;
     delete FrameBouble;
+    FrameBouble = nullptr;
     this->close();
 }

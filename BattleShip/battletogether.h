@@ -1,7 +1,7 @@
 #ifndef BATTLETOGETHER_H
 #define BATTLETOGETHER_H
 
-#include <battlewindow.h>
+#include "battlewindow.h"
 
 class BattleTogether : public BattleWindow
 {
@@ -12,7 +12,7 @@ public:
 
 public slots:
     void GetChoose(int);
-    void CСССongratulationsWin();
+    void CCCCongratulationsWin();
 
 private slots:
     void onChange2ButtonClicked();

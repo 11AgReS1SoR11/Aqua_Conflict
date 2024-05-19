@@ -1,10 +1,8 @@
 
 #include "startchoosewin.h"
-#include <QDebug>
 
 StartChooseWin::StartChooseWin(QWidget *parent) : QDialog(parent)
 {
-    qDebug() << "CCC";
     const int WINDOW_WIDTH = 400;
     const int WINDOW_HEIGHT = 400;
     setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -24,7 +22,6 @@ StartChooseWin::StartChooseWin(QWidget *parent) : QDialog(parent)
 
 void StartChooseWin::SetDesign()
 {
-    qDebug() << "CCC";
     const QString ButtonDesign = GetDesign("MainButtons").arg(QDir::currentPath() + "/../Design/BattleShip_WoodBackground.jpg");
     Solo->setStyleSheet(ButtonDesign);
     Together->setStyleSheet(ButtonDesign);
@@ -32,7 +29,6 @@ void StartChooseWin::SetDesign()
 
     const QString pictureName = "BattleShip_ChooseBackground.jpg";
     SetBackground(this, QDir::currentPath() + "/../Design/" + pictureName);
-    qDebug() << "DDD";
 }
 
 StartChooseWin::~StartChooseWin()

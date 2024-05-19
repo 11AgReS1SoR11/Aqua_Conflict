@@ -60,8 +60,8 @@ BattleWindow::BattleWindow(int activeHit, int activeMiss, QWidget *parent)
     connect(Field1, &BattleField::Hitsignal, this, &BattleWindow::Scoreboard);
     connect(Field2, &BattleField::Hitsignal, this, &BattleWindow::Scoreboard);
     // обработчик победы
-    connect(Field1, &BattleField::Hitsignal, this, &BattleWindow::CСССongratulationsWin);
-    connect(Field2, &BattleField::Hitsignal, this, &BattleWindow::CСССongratulationsWin);
+    connect(Field1, &BattleField::Hitsignal, this, &BattleWindow::CCCCongratulationsWin);
+    connect(Field2, &BattleField::Hitsignal, this, &BattleWindow::CCCCongratulationsWin);
 
 
     SetDesign();
@@ -170,13 +170,16 @@ void BattleWindow::onReturnButtonClicked()
 void BattleWindow::NextStep(QPair<int, int> XY)
 {
     BattleField* ClickedField = qobject_cast<BattleField*>(sender());
-    if (ClickedField) {
-        if (ClickedField == Field1) {
+    if (ClickedField)
+    {
+        if (ClickedField == Field1)
+        {
             Field1->IsClickable(false);
             Field2->IsClickable(true);
             Turn->setText("Turn:\n" + player1->text());
             LastTurn->setText("Last turn: " + player2->text() + "  (" + QString::number(XY.first) + "-" + QString(QChar('A' + XY.second - 1)) + ")");
-        } else if (ClickedField == Field2) {
+        } else if (ClickedField == Field2)
+        {
             Field1->IsClickable(true);
             Field2->IsClickable(false);
             Turn->setText("Turn:\n" + player2->text());
@@ -185,20 +188,21 @@ void BattleWindow::NextStep(QPair<int, int> XY)
     }
 }
 
-GetModeWindow* BattleWindow::СongratulationsWin()
+GetModeWindow* BattleWindow::CongratulationsWin()
 {
     if (Field1->HowMuchShips() != 0 && Field2->HowMuchShips() != 0)
         return nullptr; // никто не проиграл
+
     GetModeWindow* win = new GetModeWindow("Retry", "Back", this);
     if (Field1->HowMuchShips() == 0) win->SetLabel("Win: " + player2->text());
     else win->SetLabel("Win: " + player1->text());
-    win->setWindowTitle("Сongratulations");
+    win->setWindowTitle("Congratulations");
     return win;
 }
 
-void BattleWindow::CСССongratulationsWin()
+void BattleWindow::CCCCongratulationsWin()
 {
-    GetModeWindow* win = СongratulationsWin();
+    GetModeWindow* win = CongratulationsWin();
     if (win)
     {
         connect(win, &GetModeWindow::Result, this, &BattleWindow::GetChoose);
@@ -243,11 +247,14 @@ void BattleWindow::GetChoose(int res)
 void BattleWindow::Scoreboard(QPair<int, int> XY)
 {
     BattleField* ClickedField = qobject_cast<BattleField*>(sender());
-    if (ClickedField) {
-        if (ClickedField == Field1) {
+    if (ClickedField)
+    {
+        if (ClickedField == Field1)
+        {
             Turn->setText("Turn:\n" + player1->text());
             LastTurn->setText("Last turn: " + player2->text() + "  (" + QString::number(XY.first) + "-" + QString(QChar('A' + XY.second - 1)) + ")");
-        } else if (ClickedField == Field2) {
+        } else if (ClickedField == Field2)
+        {
             Turn->setText("Turn:\n" + player2->text());
             LastTurn->setText("Last turn: " + player1->text() + "  (" + QString::number(XY.first) + "-" + QString(QChar('A' + XY.second - 1)) + ")");
         }

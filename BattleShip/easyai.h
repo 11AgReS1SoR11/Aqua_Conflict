@@ -1,9 +1,10 @@
 #ifndef EASYAI_H
 #define EASYAI_H
 
-#include <ai.h>
 #include <QRandomGenerator>
 #include <QPair>
+
+#include "ai.h"
 
 class EasyAI : public AI
 {

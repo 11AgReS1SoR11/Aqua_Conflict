@@ -1,7 +1,5 @@
 #include "easyai.h"
 
-#include <iostream>
-
 QPair<int, int> EasyAI::MakeDecision()
 {
     int X = QRandomGenerator::global()->bounded(1, 11);

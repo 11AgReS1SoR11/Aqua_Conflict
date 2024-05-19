@@ -6,13 +6,14 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QPair>
-#include <mylib.h>
+
+#include "mylib.h"
 
 class Cell : public QPushButton
 {
     Q_OBJECT
 public:
-    Cell(QWidget *parent = nullptr);
+    Cell(QWidget* parent = nullptr);
     void Deth();
     void SetShip(bool);
     void SetUsed(bool);

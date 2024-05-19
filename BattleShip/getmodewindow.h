@@ -2,8 +2,9 @@
 #define GETMODEWINDOW_H
 
 #include <QDialog>
-#include <mylib.h>
 #include <QString>
+
+#include "mylib.h"
 
 class GetModeWindow : public QDialog
 {

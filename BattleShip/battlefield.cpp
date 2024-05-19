@@ -33,7 +33,6 @@ BattleField::~BattleField()
 {
     delete Field;
     delete M;
-    delete Field;
     delete attackTimer;
 }
 
@@ -89,16 +88,18 @@ bool BattleField::CheckForNeighboor(Cell* ClickedCell)
     return key;
 }
 
-void BattleField::RecCheck(Cell *ClickedCell, bool &key, int way)
+void BattleField::RecCheck(Cell* ClickedCell, bool& key, int way)
 {
-    QPair<int, int> XY = ClickedCell->GetXY();
     if (!key) return;
+    if (!ClickedCell->GetShip()) return;
+
+    QPair<int, int> XY = ClickedCell->GetXY();
     if (ClickedCell->GetShip() && !ClickedCell->GetUsed())
     {
         key = false;
         return;
     }
-    if (!ClickedCell->GetShip()) return;
+
     if (XY.first > 1 && way != DOWN)
         RecCheck(&CELLS[XY.first-1][XY.second], key, UP); // check up
     if (XY.first < 10 && way != UP)
@@ -109,22 +110,20 @@ void BattleField::RecCheck(Cell *ClickedCell, bool &key, int way)
         RecCheck(&CELLS[XY.first][XY.second+1], key, RIGHT); // check right
 }
 
-void BattleField::ShipDead(Cell *ClickedCell, int way)
+void BattleField::ShipDead(Cell* ClickedCell, int way)
 {
+    if (!ClickedCell->GetShip()) return;
+
     QPair<int, int> XY = ClickedCell->GetXY();
-    if (!ClickedCell->GetShip())
-        return;
-    else // Атакую всё вокруг
-    {
-        if (XY.first > 1 && XY.second > 1) CELLS[XY.first-1][XY.second-1].Attack(hitSettings, missSettings);
-        if (XY.first > 1) CELLS[XY.first-1][XY.second].Attack(hitSettings, missSettings);
-        if (XY.first > 1 && XY.second < 10) CELLS[XY.first-1][XY.second+1].Attack(hitSettings, missSettings);
-        if (XY.second > 1) CELLS[XY.first][XY.second-1].Attack(hitSettings, missSettings);
-        if (XY.second < 10) CELLS[XY.first][XY.second+1].Attack(hitSettings, missSettings);
-        if (XY.first < 10 && XY.second > 1) CELLS[XY.first+1][XY.second-1].Attack(hitSettings, missSettings);
-        if (XY.first < 10) CELLS[XY.first+1][XY.second].Attack(hitSettings, missSettings);
-        if (XY.first < 10 && XY.second < 10) CELLS[XY.first+1][XY.second+1].Attack(hitSettings, missSettings);
-    }
+    // Атакую всё вокруг
+    if (XY.first > 1 && XY.second > 1) CELLS[XY.first-1][XY.second-1].Attack(hitSettings, missSettings);
+    if (XY.first > 1) CELLS[XY.first-1][XY.second].Attack(hitSettings, missSettings);
+    if (XY.first > 1 && XY.second < 10) CELLS[XY.first-1][XY.second+1].Attack(hitSettings, missSettings);
+    if (XY.second > 1) CELLS[XY.first][XY.second-1].Attack(hitSettings, missSettings);
+    if (XY.second < 10) CELLS[XY.first][XY.second+1].Attack(hitSettings, missSettings);
+    if (XY.first < 10 && XY.second > 1) CELLS[XY.first+1][XY.second-1].Attack(hitSettings, missSettings);
+    if (XY.first < 10) CELLS[XY.first+1][XY.second].Attack(hitSettings, missSettings);
+    if (XY.first < 10 && XY.second < 10) CELLS[XY.first+1][XY.second+1].Attack(hitSettings, missSettings);
 
     if (XY.first > 1 && way != DOWN)
         ShipDead(&CELLS[XY.first-1][XY.second], UP); // check up
@@ -136,23 +135,7 @@ void BattleField::ShipDead(Cell *ClickedCell, int way)
         ShipDead(&CELLS[XY.first][XY.second+1], RIGHT); // check right
 }
 
-int **BattleField::GetShipMap()
-{
-    int** arr = new int*[COUNTCELL];
-    for (int i = 0; i < COUNTCELL; ++i)
-        arr[i] = new int[COUNTCELL];
-
-    for (int i = 1; i <= 10; i++)
-        for (int j = 1; j <= 10; j++)
-            arr[i][j] = CELLS[i][j].GetShip();
-
-    for (int j = 0; j < COUNTCELL; j++) arr[0][j] = 0;
-    for (int i = 0; i < COUNTCELL; i++) arr[i][0] = 0;
-
-    return arr;
-}
-
-int **BattleField::GetUsedMap()
+int** BattleField::GetUsedMap()
 {
     int** arr = new int*[COUNTCELL];
     for (int i = 0; i < COUNTCELL; ++i)

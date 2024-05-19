@@ -9,9 +9,9 @@
 #include <QRandomGenerator>
 #include <QPair>
 
-#include <ai.h>
-#include <mylib.h>
-#include <getmodewindow.h>
+#include "ai.h"
+#include "mylib.h"
+#include "getmodewindow.h"
 
 class BattleWindow : public QMainWindow
 {
@@ -20,7 +20,6 @@ public:
     BattleWindow(int ActiveHit, int ActiveMiss, QWidget *parent = nullptr);
     virtual ~BattleWindow();
     void SetDesign();
-    void StartGame();
     int Drawing();
     int GetWidth();
     int GetHeight();
@@ -28,14 +27,14 @@ public:
     QString Player1Name();
     QString Player2Name();
     void BlockChange1Button();
-    GetModeWindow* СongratulationsWin();
+    GetModeWindow* CongratulationsWin();
     void RestartAllWidgets();
 
 public slots:
     virtual void NextStep(QPair<int, int> XY);
     virtual void onStartButtonClicked();
     virtual void GetChoose(int);
-    virtual void CСССongratulationsWin();
+    virtual void CCCCongratulationsWin();
 
 private slots:
     void onChangeButtonClicked();

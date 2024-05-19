@@ -1,15 +1,16 @@
 
 #include "mylib.h"
-#include <QDebug>
 
-void CallCompliteWindow(const QString& Text){
+void CallCompliteWindow(const QString& Text)
+{
     //всплывающее окно, что всё круто
     QMessageBox compite_message;
     compite_message.setText(Text);
     compite_message.exec();
 }
 
-QPushButton* CreateButton(QWidget *window, QString text, const int X, const int Y, const int sizeX, const int sizeY, const int sizeFont, const QString& family){
+QPushButton* CreateButton(QWidget *window, QString text, const int X, const int Y, const int sizeX, const int sizeY, const int sizeFont, const QString& family)
+{
     QPushButton* Button = new QPushButton(text, window); // создаю кнопку
     Button->setGeometry(X, Y, sizeX, sizeY); // указываю размер и координаты
     QFont font = Button->font();
@@ -20,13 +21,13 @@ QPushButton* CreateButton(QWidget *window, QString text, const int X, const int 
     return Button;
 }
 
-QLabel* CreateTitle(QWidget *window, QString text, const int X, const int Y, const int sizeX, const int sizeY){
+QLabel* CreateTitle(QWidget *window, QString text, const int X, const int Y, const int sizeX, const int sizeY)
+{
     QLabel* Title = new QLabel(text, window);
     Title->setGeometry(X, Y, sizeX, sizeY);
     Title->setAlignment(Qt::AlignCenter);
     QFont font = Title->font();
     font.setPointSize(25);     // устанавливаю размер шрифта
-    //font.setFamily("Pristina"); // шрифт
     font.setBold(true);
     font.setItalic(true);
     Title->setFont(font);
@@ -37,14 +38,14 @@ QLabel* CreateTitle(QWidget *window, QString text, const int X, const int Y, con
 QString GetDesign(const QString parametrButton)
 {
     const QString filename = QDir::currentPath() + "/../Design/" + parametrButton + ".txt";
-    qDebug() << filename;
     QFile file(filename);
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         QByteArray data = file.readAll();
         QString text = QString::fromUtf8(data);
         return text;
     }
-    throw std::runtime_error("AAAAAAAAAAAAAA");
+    throw std::runtime_error("Can't open file or folder Design");
 }
 
 bool SetBackground(QWidget* window, const QString& ImagePath)
@@ -60,7 +61,8 @@ bool SetBackground(QWidget* window, const QString& ImagePath)
 bool SetBackground(QPushButton* button, const QString& imagePath)
 {
     QPixmap pixmap(imagePath);
-    if (pixmap.isNull()) {
+    if (pixmap.isNull())
+    {
         return false; // Возвращаем false, если не удалось загрузить изображение
     }
     QSize buttonSize = button->size();

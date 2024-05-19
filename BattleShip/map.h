@@ -4,8 +4,9 @@
 #include <QString>
 #include <QRandomGenerator>
 #include <QFile>
-#include <cell.h>
 #include <QDir>
+
+#include "cell.h"
 
 class Map
 {

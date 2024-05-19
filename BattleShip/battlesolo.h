@@ -1,10 +1,10 @@
 #ifndef BATTLESOLO_H
 #define BATTLESOLO_H
 
-#include <battlewindow.h>
-#include <ai.h>
-#include <easyai.h>
-#include <mediumai.h>
+#include "battlewindow.h"
+#include "ai.h"
+#include "easyai.h"
+#include "mediumai.h"
 
 class BattleSolo : public BattleWindow
 {
